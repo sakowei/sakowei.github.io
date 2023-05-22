@@ -1,0 +1,241 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:200,400,500,600);
+:root {
+  --mian-bg: #fff;
+  --2nd-bg: #eee;
+  --text: #333;
+  --btn: rgb(204,204,204);
+  --footer: #ccc6;
+  --link: #1e90ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-evenly;
+  list-style: none;
+}
+
+nav ul, .shelf {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-family: Ubuntu, sans-serif;
+  color: var(--text);
+  background-color: var(--mian-bg);
+}
+
+a {
+  position: relative;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a::after {
+  content: '';
+  border-radius: 4px;
+  position: absolute;
+  top: 80%;
+  right: -.1rem;
+  bottom: 0;
+  left: -.1rem;
+  background-color: var(--link);
+  transition: top .2s cubic-bezier(0.165, 0.84, 0.44, 1);
+  z-index: -1;
+}
+
+a:hover::after { top: 0 }
+
+header, .content, footer {width: 100%;}
+
+header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 14rem;
+  background-color: var(--2nd-bg);
+}
+
+header .title {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 1.5rem;
+}
+
+header .title h1 {
+  font-size: 3em;
+  font-weight: normal;
+}
+
+header img {
+  display: block;
+  border-radius: 50%;
+  width: 6rem;
+  height: 6rem;
+}
+
+.title .quote {
+  font-size: .95rem;
+  padding: .2rem 0;
+}
+
+nav {
+  position: sticky;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  height: 2rem;
+  line-height: 2rem;
+  width: 100%;
+  z-index: 100;
+  background-color: var(--2nd-bg);
+}
+
+nav ul li {
+  padding: 0 .6rem;
+  font-size: 1.1rem;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-bottom: 1px solid #ccc6;
+}
+
+.content h3 {
+  margin: 2em 0;
+  font-size: 1.2rem;
+}
+
+.home {
+  min-height: 16rem;
+  overflow: hidden;
+}
+
+.home .desc li {
+  margin: .25rem 0;
+  line-height: 1.5rem;
+}
+
+.shelf a::after,
+.project a:after,
+footer a::after,
+.biz-card a:after { visibility: hidden }
+
+
+.shelf li img {
+  margin-bottom: 7px;
+  box-shadow: 2px 3px 4px 0 #3338;
+}
+
+.shelf li .info > * {
+  display: block;
+  font-size: 14px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: default;
+}
+
+.shelf li {
+  width: 140px;
+  display: inline-block;
+  margin: 0 25px 15px 0;
+  cursor: pointer;
+}
+
+.shelf li, .books {
+  transition: .3s transform cubic-bezier(0.765, 0.115, 0.640, 0.885);
+}
+
+.shelf a {font-weight: normal;}
+
+.read {
+  display: flex;
+  align-items: center;
+  min-height: 24em;
+}
+
+.read .info :first-child { color: dodgerblue }
+
+.books:hover, .shelf li:hover {
+  transform: translateY(-20px);
+}
+
+.project {
+  min-height: 24rem;
+  padding-bottom: 2rem;
+}
+
+.project .books { width: 320px }
+
+.project p {
+  color: dodgerblue;
+  font-weight: 500;
+  text-align: center;
+}
+
+.me {
+  min-height: 10rem;
+  margin-bottom: 1.5rem;
+  border: none;
+}
+
+.me ul li {padding: .5rem;}
+
+.me h3 {
+  margin: 1em 0;
+}
+
+.biz-card {
+  margin: 20px 0 0 0;
+}
+
+footer {
+  position: sticky;
+  bottom: 0;
+  height: 2em;
+  line-height: 2em;
+  font-size: .8rem;
+  text-align: center;
+  background-color: var(--footer);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+}
+
+footer img {
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 1px;
+  margin-left: .5rem;
+  height: 1rem;
+}
